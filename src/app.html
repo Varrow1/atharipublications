@@ -790,7 +790,13 @@ nav {
   </div>
 
   <!-- Markdown info section -->
-
+  <div class="md-info">
+    <strong>📁 How Articles Are Written (SvelteKit + mdsvex)</strong><br><br>
+    Each article on this site is a <code>.md</code> file in <code>src/content/articles/</code>. To add a new article, create a file like <code>my-article.md</code> and add frontmatter at the top:<br><br>
+    <code>---<br>title: Your Article Title<br>category: refutations<br>tags: [khawarij, aqeedah]<br>date: 2026-02-20<br>---</code><br><br>
+    Then write your article below using Markdown. Custom components like <code>&lt;HadithBlock&gt;</code>, <code>&lt;ScholarQuote&gt;</code>, and <code>&lt;VerseBlock&gt;</code> can be dropped inline. SvelteKit automatically creates a page for it at <code>/articles/my-article</code>.
+  </div>
+</div>
 <!-- ── ARTICLE 1: KUFR DUNA KUFR ── -->
 <div class="view" id="view-kufr">
   <div class="cat-bar">Refutation of the Khawārij · Ḥadīth Sciences · Jarḥ wa-Taʿdīl</div>
