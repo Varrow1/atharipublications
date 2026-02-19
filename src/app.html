@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Madkhalis — "Upon the Sunnah"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Noto+Naskh+Arabic:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── THEME VARIABLES ── */
+[data-theme="light"] {
+  --ink: #1a1208;
+  --ink-soft: #2a1f0a;
+  --paper: #f5f0e8;
+  --paper-dark: #ede7d5;
+  --paper-mid: #e8e0cc;
+  --gold: #b8860b;
+  --gold-light: #d4a017;
+  --gold-pale: #f0e6c0;
+  --red-deep: #8b1a1a;
+  --green-deep: #1a4a2e;
+  --green-soft: #c8e8d0;
+  --muted: #6b5e44;
+  --border: #c8b88a;
+  --nav-bg: #1a1208;
+  --nav-text: #d4a017;
+  --card-bg: #fff;
+  --card-border: #c8b88a;
+  --hadith-bg: #1a1208;
+  --hadith-text: #e8dfc8;
+  --hadith-matn: #f0e8d0;
+  --scholar-bg: #f0e6c0;
+  --principle-bg: #1a1208;
+  --shadow: rgba(0,0,0,0.08);
+  --tag-praise-bg: #e8f5ec;
+  --tag-praise-c: #1a4a2e;
+  --tag-praise-b: #a8d5b5;
+  --tag-crit-bg: #fdf0f0;
+  --tag-crit-c: #8b1a1a;
+  --tag-crit-b: #e8b8b8;
+  --tag-neu-bg: #f0e6c0;
+  --tag-neu-c: #7a5c00;
+  --tag-neu-b: #c8b88a;
+  --conclusion-bg: #1a4a2e;
+  --conclusion-text: #c8e8d0;
+  --conclusion-p: #d4edd8;
+  --ref-border: #ede7d5;
+  --home-card-hover: #ede7d5;
+  --verse-bg: #1a1208;
+  --verse-text: #e8dfc8;
+}
+
+[data-theme="dark"] {
+  --ink: #e8dfc8;
+  --ink-soft: #d4c9a8;
+  --paper: #161008;
+  --paper-dark: #1e1608;
+  --paper-mid: #252010;
+  --gold: #d4a017;
+  --gold-light: #e8b830;
+  --gold-pale: #2a2008;
+  --red-deep: #c84040;
+  --green-deep: #0f3020;
+  --green-soft: #204830;
+  --muted: #9a8a68;
+  --border: #3a3020;
+  --nav-bg: #0a0804;
+  --nav-text: #d4a017;
+  --card-bg: #1e1a0e;
+  --card-border: #3a3020;
+  --hadith-bg: #0a0804;
+  --hadith-text: #e8dfc8;
+  --hadith-matn: #f0e8d0;
+  --scholar-bg: #1e1a0e;
+  --principle-bg: #0a0804;
+  --shadow: rgba(0,0,0,0.4);
+  --tag-praise-bg: #0f2818;
+  --tag-praise-c: #80c894;
+  --tag-praise-b: #1a4828;
+  --tag-crit-bg: #280808;
+  --tag-crit-c: #e87878;
+  --tag-crit-b: #481818;
+  --tag-neu-bg: #1e1a0e;
+  --tag-neu-c: #c8a840;
+  --tag-neu-b: #3a3020;
+  --conclusion-bg: #0f2818;
+  --conclusion-text: #a8d8b8;
+  --conclusion-p: #98c8a8;
+  --ref-border: #2a2010;
+  --home-card-hover: #1e1a0e;
+  --verse-bg: #0a0804;
+  --verse-text: #e8dfc8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── NAV ── */
+nav {
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 58px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  border-bottom: 2px solid var(--gold);
+}
+.nav-left { display: flex; align-items: center; gap: 2rem; }
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--gold-light);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nav-logo .tagline {
+  font-size: 0.7rem;
+  color: #888;
+  font-family: 'Source Serif 4', serif;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  display: block;
+  line-height: 1;
+  margin-top: 1px;
+}
+.nav-links { display: flex; gap: 1.4rem; list-style: none; }
+.nav-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+.nav-right { display: flex; align-items: center; gap: 0.8rem; }
+
+/* Dark mode toggle */
+.dm-toggle {
+  background: none;
+  border: 1px solid #444;
+  color: #aaa;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+.dm-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Reading progress */
+#progress {
+  position: fixed;
+  top: 58px; left: 0;
+  height: 3px;
+  background: var(--gold);
+  z-index: 300;
+  width: 0%;
+  transition: width 0.08s linear;
+}
+
+/* ── VIEWS ── */
+.view { display: none; }
+.view.active { display: block; }
+
+/* ── HOME PAGE ── */
+.home-hero {
+  background: var(--nav-bg);
+  border-bottom: 2px solid var(--gold);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 120%, rgba(184,134,11,0.15) 0%, transparent 70%);
+}
+.home-hero-arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+  direction: rtl;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+.home-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  position: relative;
+}
+.home-hero h1 .quote-marks {
+  color: var(--gold);
+  font-size: 0.8em;
+}
+.home-hero p {
+  color: #aaa;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  position: relative;
+}
+.home-tagline-rule {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.2rem auto 0;
+}
+
+.home-cats {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.2rem 2rem;
+  background: var(--paper-dark);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.cat-pill {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.3rem 0.9rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Source Serif 4', serif;
+}
+.cat-pill:hover, .cat-pill.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--nav-bg);
+}
+
+.articles-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+
+.article-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px var(--shadow);
+}
+.card-top {
+  background: var(--green-deep);
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-cat {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-soft);
+}
+.card-tag {
+  font-size: 0.65rem;
+  background: var(--red-deep);
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  letter-spacing: 0.05em;
+}
+.card-body { padding: 1.4rem; flex: 1; }
+.card-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+}
+.card-body p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-footer {
+  padding: 0.8rem 1.4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.card-read {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ── ARTICLE VIEW ── */
+.article-view { max-width: 100%; }
+
+.cat-bar {
+  background: var(--green-deep);
+  color: var(--green-soft);
+  text-align: center;
+  padding: 0.45rem 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.art-hero {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2rem;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.6s ease both;
+}
+.art-tag {
+  display: inline-block;
+  background: var(--red-deep);
+  color: #fff;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 1rem;
+}
+.art-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 0.9rem;
+}
+.art-subtitle {
+  font-size: 1rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 1.4rem;
+  line-height: 1.6;
+}
+.art-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+  align-items: center;
+}
+.art-meta .divider { color: var(--border); }
+
+.art-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 2rem 5rem;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.art-body p { margin-bottom: 1.4rem; color: var(--ink-soft); }
+.art-body > p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.2rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.82;
+  margin: 0.05em 0.1em 0 0;
+  color: var(--gold);
+}
+
+/* ── MD COMPONENTS ── */
+/* Hadith block */
+.hadith-block {
+  background: var(--hadith-bg);
+  color: var(--hadith-text);
+  border-left: 4px solid var(--gold);
+  margin: 2rem 0;
+  padding: 1.6rem 1.8rem;
+  position: relative;
+  border-radius: 0 2px 2px 0;
+}
+.hadith-block::before {
+  content: '\275D';
+  position: absolute;
+  top: 0.6rem; right: 1rem;
+  font-size: 2.8rem;
+  color: var(--gold);
+  opacity: 0.25;
+  line-height: 1;
+}
+.hadith-block .chain {
+  font-size: 0.8rem;
+  color: #a89878;
+  margin-bottom: 0.7rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+.hadith-block .matn {
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: var(--hadith-matn);
+}
+.hadith-block .arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 1.3rem;
+  direction: rtl;
+  text-align: right;
+  color: var(--gold-light);
+  margin: 0.8rem 0;
+  line-height: 2.1;
+}
+.hadith-block .grading {
+  margin-top: 0.9rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid #3a3020;
+  font-size: 0.8rem;
+  color: #c8b88a;
+}
+.hadith-block .grading strong { color: var(--gold-light); }
+
+/* Scholar quote */
+.scholar-quote {
+  background: var(--scholar-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  padding: 1.3rem 1.7rem;
+  margin: 1.6rem 0;
+}
+.scholar-quote .src {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.scholar-quote .qt { font-style: italic; color: var(--ink-soft); line-height: 1.8; }
+
+/* Verse block */
+.verse-block {
+  background: var(--verse-bg);
+  border: 1px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+.verse-block .v-arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 1.4rem;
+  direction: rtl;
+  color: var(--gold-light);
+  line-height: 2.2;
+  margin-bottom: 0.8rem;
+}
+.verse-block .v-translation {
+  font-style: italic;
+  color: var(--verse-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.verse-block .v-ref {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  letter-spacing: 0.06em;
+}
+
+/* Principle box */
+.principle-box {
+  background: var(--principle-bg);
+  border: 1px solid var(--gold);
+  padding: 1.5rem 1.8rem;
+  margin: 1.8rem 0;
+  text-align: center;
+}
+.principle-box .p-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.principle-box .p-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #f5e8c8;
+  line-height: 1.6;
+}
+
+/* Narrator card */
+.narrator-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  margin: 1.8rem 0;
+  overflow: hidden;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.nc-head {
+  background: var(--green-deep);
+  padding: 0.75rem 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nc-head .nc-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-soft); }
+.nc-head .nc-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #fff; }
+.nc-body { padding: 1rem 1.3rem; }
+.nc-row {
+  display: flex; gap: 0.8rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--ref-border);
+  font-size: 0.88rem;
+  align-items: flex-start;
+}
+.nc-row:last-child { border-bottom: none; }
+.nc-lbl { min-width: 100px; color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.1rem; }
+.nc-val { color: var(--ink); line-height: 1.6; }
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+  font-size: 0.72rem;
+  margin: 0.1rem 0.15rem 0.1rem 0;
+  border: 1px solid;
+}
+.tag-p { background: var(--tag-praise-bg); color: var(--tag-praise-c); border-color: var(--tag-praise-b); }
+.tag-c { background: var(--tag-crit-bg); color: var(--tag-crit-c); border-color: var(--tag-crit-b); }
+.tag-n { background: var(--tag-neu-bg); color: var(--tag-neu-c); border-color: var(--tag-neu-b); }
+
+/* Conclusion */
+.conclusion {
+  background: var(--conclusion-bg);
+  color: var(--conclusion-text);
+  padding: 1.8rem 2rem;
+  margin: 2.2rem 0;
+}
+.conclusion h3 {
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  font-style: normal;
+  font-family: 'Source Serif 4', serif;
+}
+.conclusion p { color: var(--conclusion-p); margin-bottom: 0.8rem; font-size: 0.92rem; }
+.conclusion p:last-child { margin-bottom: 0; }
+
+/* Headings */
+.art-body h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 2.5rem 0 0.9rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--gold-pale);
+  position: relative;
+}
+.art-body h2::after {
+  content: '';
+  display: block;
+  width: 45px; height: 2px;
+  background: var(--gold);
+  position: absolute;
+  bottom: -2px; left: 0;
+}
+.art-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green-deep);
+  margin: 1.8rem 0 0.7rem;
+  font-style: italic;
+}
+
+/* References */
+.references {
+  border-top: 2px solid var(--border);
+  padding-top: 1.4rem;
+  margin-top: 2.5rem;
+}
+.references h4 {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+.ref-item {
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--ref-border);
+  display: flex;
+  gap: 0.7rem;
+}
+.ref-num { font-family: 'JetBrains Mono', monospace; color: var(--gold); font-size: 0.72rem; min-width: 22px; }
+
+/* Ornament */
+.ornament { text-align: center; color: var(--gold); font-size: 1.2rem; margin: 1.8rem 0; letter-spacing: 0.5rem; opacity: 0.6; }
+
+/* Back / breadcrumb */
+.breadcrumb {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 1rem 2rem 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.breadcrumb a {
+  color: var(--gold);
+  cursor: pointer;
+  text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* Markdown info box */
+.md-info {
+  background: var(--paper-mid);
+  border: 1px dashed var(--border);
+  padding: 1rem 1.4rem;
+  margin: 2rem 2rem;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.md-info code {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--paper-dark);
+  padding: 0.1rem 0.35rem;
+  border-radius: 2px;
+  font-size: 0.85em;
+  color: var(--gold);
+}
+.md-info strong { color: var(--ink); }
+
+/* Back to top */
+.btt {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  background: var(--nav-bg);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-decoration: none;
+  z-index: 150;
+}
+.btt.show { opacity: 1; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 620px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .articles-grid { padding: 1.5rem 1rem; grid-template-columns: 1fr; }
+  .art-hero, .art-body, .breadcrumb { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .hadith-block { padding: 1.1rem; }
+}
+</style>
+    %sveltekit.head%
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" onclick="showHome()">
+      The Madkhalis
+      <span class="tagline">"Upon the Sunnah, even if people dislike it"</span>
+    </a>
+    <ul class="nav-links">
+      <li><a onclick="showHome()" class="active" id="nav-home">Home</a></li>
+      <li><a>Aqeedah</a></li>
+      <li><a>Manhaj</a></li>
+      <li><a>Refutations</a></li>
+      <li><a>Scholars</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <button class="dm-toggle" id="dmBtn" onclick="toggleDark()" title="Toggle dark mode">☀</button>
+  </div>
+</nav>
+
+<!-- ── HOME VIEW ── -->
+<div class="view active" id="view-home">
+  <div class="home-hero">
+    <div class="home-hero-arabic">أهل السنة والجماعة</div>
+    <h1>
+      <span class="quote-marks">"</span>The Madkhalis<span class="quote-marks">"</span>
+    </h1>
+    <p>Clarifying the Sunnah · Refuting Innovations · Defending the Scholars</p>
+    <div class="home-tagline-rule"></div>
+  </div>
+
+  <div class="home-cats">
+    <button class="cat-pill active">All Articles</button>
+    <button class="cat-pill">Refutations</button>
+    <button class="cat-pill">Jarḥ wa-Taʿdīl</button>
+    <button class="cat-pill">Scholars</button>
+    <button class="cat-pill">Aqeedah</button>
+    <button class="cat-pill">Manhaj</button>
+  </div>
+
+  <div class="articles-grid">
+
+    <!-- Card 1 -->
+    <div class="article-card" onclick="showArticle('kufr')">
+      <div class="card-top">
+        <span class="card-cat">Jarḥ wa-Taʿdīl · Refutation</span>
+        <span class="card-tag">Khawārij</span>
+      </div>
+      <div class="card-body">
+        <h3>Authenticating the Athar of Ibn ʿAbbās on Kufr Dūna Kufr</h3>
+        <p>A detailed response to those who attempt to weaken the narration of Ibn ʿAbbās (رضي الله عنهما) regarding the ruling on governments — examining Hishām ibn Ḥujayr through the lens of Jarḥ wa-Taʿdīl.</p>
+      </div>
+      <div class="card-footer">
+        <span>19 Feb 2026 · 15 min read</span>
+        <span class="card-read">Read →</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="article-card" onclick="showArticle('rabee')">
+      <div class="card-top">
+        <span class="card-cat">Scholars · Refutation</span>
+        <span class="card-tag">Defense</span>
+      </div>
+      <div class="card-body">
+        <h3>In Defense of Shaykh Rabīʿ ibn Hādī al-Madkhalī (رحمه الله)</h3>
+        <p>Dismantling the most widely spread lies against the Imām — from the false claim about the Treaty of Ḥudaybiyyah, to the slander of Irjāʾ — with direct quotations from the Shaykh's own works.</p>
+      </div>
+      <div class="card-footer">
+        <span>20 Feb 2026 · 18 min read</span>
+        <span class="card-read">Read →</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Markdown info section -->
+  <div class="md-info">
+    <strong>📁 How Articles Are Written (SvelteKit + mdsvex)</strong><br><br>
+    Each article on this site is a <code>.md</code> file in <code>src/content/articles/</code>. To add a new article, create a file like <code>my-article.md</code> and add frontmatter at the top:<br><br>
+    <code>---<br>title: Your Article Title<br>category: refutations<br>tags: [khawarij, aqeedah]<br>date: 2026-02-20<br>---</code><br><br>
+    Then write your article below using Markdown. Custom components like <code>&lt;HadithBlock&gt;</code>, <code>&lt;ScholarQuote&gt;</code>, and <code>&lt;VerseBlock&gt;</code> can be dropped inline. SvelteKit automatically creates a page for it at <code>/articles/my-article</code>.
+  </div>
+</div>
+
+<!-- ── ARTICLE 1: KUFR DUNA KUFR ── -->
+<div class="view" id="view-kufr">
+  <div class="cat-bar">Refutation of the Khawārij · Ḥadīth Sciences · Jarḥ wa-Taʿdīl</div>
+  <div class="breadcrumb"><a onclick="showHome()">← All Articles</a> <span>/</span> <span>Kufr Dūna Kufr</span></div>
+  <header class="art-hero">
+    <div class="art-tag">Refutation</div>
+    <h1>Authenticating the Athar of Ibn ʿAbbās on Kufr Dūna Kufr</h1>
+    <p class="art-subtitle">A detailed response to those who attempt to weaken the narration of Ibn ʿAbbās (رضي الله عنهما) regarding the ruling on governments that do not judge by what Allāh has revealed.</p>
+    <div class="art-meta">
+      <span>By Abū Muḥammad al-Makkī</span>
+      <span class="divider">|</span>
+      <span>19 February 2026</span>
+      <span class="divider">|</span>
+      <span>15 min read</span>
+    </div>
+  </header>
+
+  <main class="art-body">
+    <div class="ornament">✦ ✦ ✦</div>
+    <p>Let us move on to the authentication of the Athar of Ibn ʿAbbās (رضي الله عنه) with the wording <em>kufr dūna kufr</em> (كفر دون كفر)—which the khawārij attempt to weaken due to the disease and deviation they carry in their hearts.</p>
+
+    <h2>The Narration in al-Mustadrak</h2>
+    <p>In <em>al-Mustadrak ʿalā al-Ṣaḥīḥayn</em> of al-Ḥākim al-Nīsābūrī (رحمه الله), he narrates the following athar:</p>
+
+    <div class="hadith-block">
+      <div class="chain">Narrated by Aḥmad ibn Sulaymān al-Mawṣilī → ʿAlī ibn Ḥarb → Sufyān ibn ʿUyaynah → Hishām ibn Ḥujayr → Ṭāwūs → Ibn ʿAbbās (رضي الله عنهما)</div>
+      <div class="matn">"It is not the disbelief that they go to. It is not disbelief that removes one from the religion. 'And whoever does not judge by what Allāh has revealed, then they are the disbelievers'—this is disbelief lesser than disbelief."</div>
+      <div class="arabic">«كُفْرٌ دُونَ كُفْرٍ»</div>
+      <div class="grading"><strong>Al-Ḥākim:</strong> Sound chain, not in Bukhārī or Muslim. &nbsp;·&nbsp; <strong>Al-Dhahabī (Talkhīṣ):</strong> <span style="color:#a8d580">Ṣaḥīḥ ✓</span></div>
+    </div>
+
+    <h2>The Principle: Jarḥ Must Be Mufaṣṣar</h2>
+    <p>In ḥadīth science we have the concepts of Jarḥ wa-Taʿdīl—praise and criticism of narrators. For criticism to override praise, it must be detailed and explicit, known as <em>Jarḥ Mufaṣṣar</em>.</p>
+
+    <div class="scholar-quote">
+      <div class="src">Ibn Kathīr · Ikhtiṣār ʿUlūm al-Ḥadīth, pp. 193–194</div>
+      <div class="qt">"When there is a contradiction between Jarḥ and Taʿdīl, the Jarḥ must be mufassar. The correct view is that Jarḥ is given absolute precedence if it is mufassar. And Allāh knows best."</div>
+    </div>
+
+    <div class="principle-box">
+      <div class="p-label">Qāʿidah · Foundational Principle</div>
+      <div class="p-text">For criticism (Jarḥ) to take precedence over praise (Taʿdīl), it must be <em>mufaṣṣar</em> — detailed, explicit, and substantiated with reasoning. Vague criticism (Jarḥ Mubham) does not suffice.</div>
+    </div>
+
+    <h2>The Scholars on Hishām ibn Ḥujayr al-Makkī</h2>
+
+    <div class="narrator-card">
+      <div class="nc-head">
+        <span class="nc-label">Narrator Profile</span>
+        <span class="nc-name">Hishām ibn Ḥujayr al-Makkī</span>
+      </div>
+      <div class="nc-body">
+        <div class="nc-row">
+          <div class="nc-lbl">Generation</div>
+          <div class="nc-val">Tābiʿī — narrated from Ṭāwūs; narrated from by Ibn Jurayj, Ibn ʿUyaynah</div>
+        </div>
+        <div class="nc-row">
+          <div class="nc-lbl">Praise</div>
+          <div class="nc-val">
+            <span class="tag tag-p">Al-Dhahabī: Both Shaykhs used him</span>
+            <span class="tag tag-p">Al-ʿIjlī: Trustworthy, Sunna</span>
+            <span class="tag tag-p">Ibn Shibramah: None like him in Mecca</span>
+            <span class="tag tag-p">Ibn Ḥibbān: In Al-Thiqāt</span>
+            <span class="tag tag-p">Ibn Saʿd: Trustworthy</span>
+            <span class="tag tag-p">Al-Sājī: Ṣidqūq</span>
+            <span class="tag tag-p">Ibn Maʿīn (via Isḥāq): Ṣāliḥ</span>
+          </div>
+        </div>
+        <div class="nc-row">
+          <div class="nc-lbl">Criticism</div>
+          <div class="nc-val">
+            <span class="tag tag-c">Ibn Maʿīn (direct): Weakened</span>
+            <span class="tag tag-c">Al-Qaṭṭān: Did not approve</span>
+            <span class="tag tag-n">Aḥmad: "Not strong… not that much"</span>
+            <span class="tag tag-n">Abū Dāwūd: Criticized (unspecified)</span>
+          </div>
+        </div>
+        <div class="nc-row">
+          <div class="nc-lbl">Verdict</div>
+          <div class="nc-val" style="font-style:italic; color: var(--gold)">Criticism is Jarḥ Mubham — vague, no reasoning given. Praise from major imams is substantial. Both Bukhārī and Muslim narrated from him (وَاحْتَجَّ بِهِ الشَّيْخَيْنِ).</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Al-Dhahabī and Ibrāhīm al-Ruḥaylī's Final Word</h2>
+    <p>Al-Dhahabī addressed Hishām in <em>Man Tukullima Fīhi wa-Huwa Muwaththaq</em>, page 522. The muḥaqqiq Ibrāhīm al-Ruḥaylī concluded:</p>
+
+    <div class="scholar-quote">
+      <div class="src">Muḥaqqiq Ibrāhīm al-Ruḥaylī — Man Tukullima Fīhi, p. 522</div>
+      <div class="qt">"The reality is that he is not weak, and the criticism against him is ambiguous. The two Shaykhs used him as evidence, but it appears there is some weakness; thus, his ḥadīth is classified as ḥasan (good). And Allāh knows best."</div>
+    </div>
+
+    <div class="conclusion">
+      <h3>Conclusion</h3>
+      <p>The athar of Ibn ʿAbbās stating <em>kufr dūna kufr</em> is established at minimum as <strong>ḥasan</strong>. The criticism against Hishām is vague (Jarḥ Mubham) and insufficient to override extensive praise from major imams, including implicit acceptance by al-Bukhārī and Muslim.</p>
+      <p>The khawārij who weaponize this technical criticism to discard the athar are exposed as selectively wielding ḥadīth science as a tool for their agenda—not as sincere scholars seeking the truth.</p>
+    </div>
+
+    <div class="references">
+      <h4>Primary Sources</h4>
+      <div class="ref-item"><span class="ref-num">1</span><span>Al-Ḥākim — <em>al-Mustadrak ʿalā al-Ṣaḥīḥayn</em></span></div>
+      <div class="ref-item"><span class="ref-num">2</span><span>Al-Dhahabī — <em>Talkhīṣ al-Mustadrak</em></span></div>
+      <div class="ref-item"><span class="ref-num">3</span><span>Ibn Kathīr — <em>Ikhtiṣār ʿUlūm al-Ḥadīth</em>, pp. 193–194</span></div>
+      <div class="ref-item"><span class="ref-num">4</span><span>Al-Dhahabī — <em>Mīzān al-Iʿtidāl</em>, vol. 7, p. 77</span></div>
+      <div class="ref-item"><span class="ref-num">5</span><span>Ibn Ḥajar — <em>Tahdhīb al-Tahdhīb</em>, vol. 13, pp. 844–846</span></div>
+      <div class="ref-item"><span class="ref-num">6</span><span>Al-Dhahabī — <em>Man Tukullima Fīhi wa-Huwa Muwaththaq</em>, p. 522, ed. Ibrāhīm al-Ruḥaylī</span></div>
+    </div>
+  </main>
+</div>
+
+<!-- ── ARTICLE 2: DEFENSE OF SHAYKH RABEE ── -->
+<div class="view" id="view-rabee">
+  <div class="cat-bar">Defense of the Scholars · Refutation of Lies · Manhaj</div>
+  <div class="breadcrumb"><a onclick="showHome()">← All Articles</a> <span>/</span> <span>In Defense of Shaykh Rabīʿ</span></div>
+  <header class="art-hero">
+    <div class="art-tag">Defense</div>
+    <h1>In Defense of Shaykh Rabīʿ ibn Hādī al-Madkhalī (رحمه الله)</h1>
+    <p class="art-subtitle">Dismantling the most widely spread slanders against the Imām — from the fabricated claim about the Treaty of Ḥudaybiyyah to the lie of Irjāʾ — with direct quotations from the Shaykh's own works.</p>
+    <div class="art-meta">
+      <span>By Abū Muḥammad al-Makkī</span>
+      <span class="divider">|</span>
+      <span>20 February 2026</span>
+      <span class="divider">|</span>
+      <span>18 min read</span>
+    </div>
+  </header>
+
+  <main class="art-body">
+    <div class="ornament">✦ ✦ ✦</div>
+
+    <p>We begin by addressing the most widely spread lie that has been said against him (رحمه الله) — the false claim that he said the Prophet ﷺ compromised on the fundamentals of the religion (<em>Tanāzul ʿan Uṣūl al-Dīn</em>) on the day of the Treaty of Ḥudaybiyyah. This is an outright fabrication and a baseless slander.</p>
+
+    <h2>First Lie: The Treaty of Ḥudaybiyyah Slander</h2>
+    <p>From <em>Majmūʿ Rasāʾil wa Kutub</em> of Shaykh Rabīʿ ibn Hādī al-Madkhalī (رحمه الله), Volume 9, pages 134–135:</p>
+
+    <div class="hadith-block">
+      <div class="chain">Majmūʿ Rasāʾil wa Kutub, Vol. 9, pp. 134–135</div>
+      <div class="matn">"I say: The Messenger of Allāh ﷺ showed forbearance in this treaty regarding major matters — from both the fundamentals and the branches of the religion. Among the fundamentals in which he showed forbearance: not writing 'Bismillāh al-Raḥmān al-Raḥīm,' and instead accepting what Suhayl ibn ʿAmr proposed: 'Bismik Allāhumma,' despite the anger of the Ṣaḥābah. And he showed forbearance in not writing 'Muḥammad Rasūl Allāh,' which is the second pillar of the two testimonies and a core of Islam, and instead accepting 'Muḥammad ibn ʿAbd Allāh.'"</div>
+    </div>
+
+    <p>When ʿUmar (رضي الله عنه) addressed the Prophet ﷺ in his grief, saying:</p>
+
+    <div class="scholar-quote">
+      <div class="src">ʿUmar ibn al-Khaṭṭāb (رضي الله عنه) — as narrated in the books of sīrah</div>
+      <div class="qt">"Are you not truly the Prophet of Allāh?" — "Yes." — "Are we not upon the truth, and our enemy upon falsehood?" — "Yes." — "Then why do we give up and accept humiliation in our religion?"</div>
+    </div>
+
+    <h3>The Shaykh's Own Clarification</h3>
+    <p>The Shaykh himself addresses this in his footnote and on the following page (p. 136) with unmistakable clarity:</p>
+
+    <div class="scholar-quote">
+      <div class="src">Shaykh Rabīʿ — Majmūʿ Rasāʾil, Vol. 9, p. 136</div>
+      <div class="qt">"Reflect, O just reader, on this statement, which is a clear, explicit text stating the forbearance was in <em>not writing</em> 'Bismillāh al-Raḥmān al-Raḥīm,' and <em>not writing</em> 'Muḥammad Rasūl Allāh.' This is a conscious differentiation between what was not written and what was being referred to in essence. This distinction is clear and manifest. No one casts doubt on this distinction except a wicked liar."</div>
+    </div>
+
+    <div class="principle-box">
+      <div class="p-label">The Distinction Made Clear</div>
+      <div class="p-text">The Shaykh stated that the Prophet ﷺ showed forbearance in the matter of <em>writing</em> these phrases — not that he compromised on the principles themselves. The Prophet ﷺ did not write "Muḥammad Rasūl Allāh" but he remained the Messenger of Allāh ﷺ in reality.</div>
+    </div>
+
+    <p>The Shaykh's own words confirm he was speaking about the act of writing, not about the fundamentals themselves. And he (رحمه الله) responded to those who distorted his words in his <em>Sharḥ of Kitāb ʿAqīdat al-Ṣalaf</em>, pages 175–176:</p>
+
+    <div class="hadith-block">
+      <div class="chain">Sharḥ Kitāb ʿAqīdat al-Ṣalaf wa Aṣḥāb al-Ḥadīth, pp. 175–176</div>
+      <div class="matn">"I have been fighting Irjāʾ since I began seeking knowledge and until I meet Allāh — ʾInshāʾAllāh. Look at my books and recordings, no lesson passes — and Allāh knows best — except that I fight the Murjiʾah in it. Then they say: 'Rabīʿ is a Murjiʾ!' Liars, they are far worse than the Murjiʾah by hundreds of times, and among them are Rawāfiḍ and Baṭiniyyah; I do not exclude this at all. For whoever has anything of the Sunnah would never dare to commit these crimes: they say to you, 'You insult Allāh! You insult the Messenger! You say: the Messenger conceded his message!' All of this is lies and unparalleled wickedness. We have never seen this in the doctrine of the Khawārij nor in the doctrine of the Rawāfiḍ!"</div>
+    </div>
+
+    <h2>Second Lie: The Accusation of Irjāʾ</h2>
+    <p>They split this slander into two forms: the first group claims he completely removed actions from Īmān; the second claims he viewed actions as perfecting Īmān but not as one of its pillars. Both are blatant falsehoods.</p>
+
+    <h3>What the Shaykh Actually Said on Īmān</h3>
+
+    <div class="scholar-quote">
+      <div class="src">Sharḥ ʿAqīdat al-Salaf wa Aṣḥāb al-Ḥadīth, p. 168</div>
+      <div class="qt">"Ahl al-Sunnah wa al-Jamāʿah hold that Īmān is speech, action, and belief; it increases with obedience and decreases with disobedience — as the author mentioned: 'Īmān is speech, action, and knowledge.' And knowledge here means belief."</div>
+    </div>
+
+    <h3>Are Actions a Pillar (Rukn) — or Merely a Condition (Sharṭ)?</h3>
+    <p>The Shaykh stated explicitly from his website:</p>
+
+    <div class="hadith-block">
+      <div class="chain">Shaykh Rabīʿ ibn Hādī al-Madkhalī — official website</div>
+      <div class="matn">"'Action is a pillar of Īmān,' because, brothers, as the uṣūl scholars say: 'The condition (sharṭ) is external to the essence; but the pillar (rukn) is part of the essence.' So we say: Īmān is statement, action, and belief, which increases with obedience and decreases with disobedience... So action is a rukn of Īmān and a part of it, not merely a condition; and this is one of the mistakes some scholars fall into."</div>
+    </div>
+
+    <h3>On Abandoning All Actions Entirely</h3>
+    <p>They then claim the Shaykh believed a person could abandon all actions of the limbs and still remain Muslim. The Shaykh refutes this himself:</p>
+
+    <div class="scholar-quote">
+      <div class="src">Kashf Akādhīb wa Taḥrīfāt wa Khiyānāt Fawzī al-Baḥraynī, p. 646</div>
+      <div class="qt">"I declare the one who abandons all action entirely to be a disbeliever; but I discourage the use of the term 'جنس' because of the tribulations it causes, as a means of blocking the avenues of evil and corruption."</div>
+    </div>
+
+    <div class="scholar-quote">
+      <div class="src">Kashf Akādhīb, p. 764</div>
+      <div class="qt">"I have said repeatedly: the one who abandons all action entirely is a disbelieving heretic (kāfir zindīq), but I have prohibited clinging to the term 'genus' because of its vagueness and ambiguity which leads to tribulations. I have clarified that it has no basis in the Book or the Sunnah, nor in the words of the noble Companions."</div>
+    </div>
+
+    <h3>On Whether Īmān Can Decrease to Nothing</h3>
+
+    <div class="scholar-quote">
+      <div class="src">Kashf Akādhīb, p. 647</div>
+      <div class="qt">"From the beginning of my scientific life — studying, teaching, and writing — I say, affirm, and declare before Allāh from the depths of my soul: that ʾīmān is speech and action, the speech of the heart and tongue, and the action of the heart and limbs, and that it increases with obedience and decreases with sin. Sometimes I add that it decreases and decreases until only the weight of a particle remains, and sometimes I say: it decreases and decreases — until nothing remains of it."</div>
+    </div>
+
+    <div class="conclusion">
+      <h3>Conclusion</h3>
+      <p>Every single lie leveled against Shaykh Rabīʿ (رحمه الله) crumbles when measured against his own words. He held that actions are a <em>rukn</em> (pillar) of Īmān — not merely a condition. He declared the one who abandons all action to be a kāfir. He explicitly stated Īmān can decrease until nothing remains. He spent his entire life fighting Irjāʾ.</p>
+      <p>May Allāh have mercy on this noble Imām, who was attacked by every group that harbored hatred in their hearts toward him because he did not allow them to taint the Sunnah of the Prophet ﷺ.</p>
+    </div>
+
+    <div class="verse-block">
+      <div class="v-arabic">يُرِيدُونَ لِيُطْفِـُٔوا۟ نُورَ ٱللَّهِ بِأَفْوَٰهِهِمْ وَٱللَّهُ مُتِمُّ نُورِهِۦ وَلَوْ كَرِهَ ٱلْكَـٰفِرُونَ</div>
+      <div class="v-translation">"They want to extinguish the light of Allāh with their mouths, but Allāh perfects His light, although the disbelievers dislike it."</div>
+      <div class="v-ref">Sūrah As-Ṣaff 61:8</div>
+    </div>
+
+    <div class="references">
+      <h4>Primary Sources</h4>
+      <div class="ref-item"><span class="ref-num">1</span><span>Shaykh Rabīʿ — <em>Majmūʿ Rasāʾil wa Kutub</em>, Vol. 9, pp. 134–136</span></div>
+      <div class="ref-item"><span class="ref-num">2</span><span>Shaykh Rabīʿ — <em>Sharḥ Kitāb ʿAqīdat al-Ṣalaf wa Aṣḥāb al-Ḥadīth</em>, pp. 168, 175–176</span></div>
+      <div class="ref-item"><span class="ref-num">3</span><span>Shaykh Rabīʿ — <em>Kashf Akādhīb wa Taḥrīfāt wa Khiyānāt Fawzī al-Baḥraynī</em>, pp. 646, 647, 764</span></div>
+      <div class="ref-item"><span class="ref-num">4</span><span>Shaykh Rabīʿ — Official Website (rabee.net)</span></div>
+    </div>
+  </main>
+</div>
+
+<a class="btt" id="btt" href="#" title="Back to top">↑</a>
+
+<script>
+  // ── DARK MODE ──
+  const btn = document.getElementById('dmBtn');
+  function toggleDark() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    btn.textContent = isDark ? '☀' : '🌙';
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  }
+  // Restore saved theme
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    btn.textContent = '🌙';
+  }
+
+  // ── ROUTING ──
+  function showHome() {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById('view-home').classList.add('active');
+    document.getElementById('progress').style.width = '0%';
+    window.scrollTo(0, 0);
+  }
+
+  function showArticle(id) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById('view-' + id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── PROGRESS BAR + BACK TO TOP ──
+  const progress = document.getElementById('progress');
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
+    btt.classList.toggle('show', scrolled > 400);
+  });
+
+  btt.addEventListener('click', e => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ── CATEGORY PILLS (visual only for now) ──
+  document.querySelectorAll('.cat-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+</script>
+    <div style="display: contents">%sveltekit.body%</div>
+</body>
+</html>
