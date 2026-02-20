@@ -51,7 +51,7 @@
 
 <div class="cat-bar">{getCategoryBar()}</div>
 <div class="breadcrumb">
-  <a href="/">← All Articles</a> <span>/</span> <span>{article.title}</span>
+  <a href="/articles">← All Articles</a> <span>/</span> <span>{article.title}</span>
 </div>
 
 <header class="art-hero">

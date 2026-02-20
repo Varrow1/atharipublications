@@ -52,6 +52,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="/" class:active={$page.url.pathname === '/'}>Home</a></li>
+      <li><a href="/articles" class:active={$page.url.pathname === '/articles' || $page.url.pathname.startsWith('/articles/')}>Articles</a></li>
       <li><a href="/" onclick={(e) => e.preventDefault()}>Aqeedah</a></li>
       <li><a href="/" onclick={(e) => e.preventDefault()}>Manhaj</a></li>
       <li><a href="/" onclick={(e) => e.preventDefault()}>Refutations</a></li>
