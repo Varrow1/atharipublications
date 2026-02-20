@@ -47,16 +47,14 @@
 <nav>
   <div class="nav-left">
     <a class="nav-logo" href="/">
-      The Madkhalis
-      <span class="tagline">"Upon the Sunnah, even if people dislike it"</span>
+      Dār al-Athar
+      <span class="tagline">Clarifying the Sunnah · Refuting Innovation</span>
     </a>
     <ul class="nav-links">
       <li><a href="/" class:active={$page.url.pathname === '/'}>Home</a></li>
       <li><a href="/articles" class:active={$page.url.pathname === '/articles' || $page.url.pathname.startsWith('/articles/')}>Articles</a></li>
-      <li><a href="/" onclick={(e) => e.preventDefault()}>Aqeedah</a></li>
-      <li><a href="/" onclick={(e) => e.preventDefault()}>Manhaj</a></li>
-      <li><a href="/" onclick={(e) => e.preventDefault()}>Refutations</a></li>
-      <li><a href="/" onclick={(e) => e.preventDefault()}>Scholars</a></li>
+      <li><a href="/articles" onclick={(e) => { if($page.url.pathname !== '/articles') return; e.preventDefault(); /* scroll to filter */ }}>Aqeedah</a></li>
+      <li><a href="/articles" onclick={(e) => { if($page.url.pathname !== '/articles') return; e.preventDefault(); /* scroll to filter */ }}>Manhaj</a></li>
     </ul>
   </div>
   <div class="nav-right">
