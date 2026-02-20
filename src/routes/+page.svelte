@@ -19,7 +19,7 @@
     <div class="hero-content" in:fly={{ y: 30, duration: 1000, delay: 200 }}>
       <div class="home-hero-arabic">أهل السنة والجماعة على فهم سلف الأمة</div>
       <h1>
-        <span class="gold-text">Dār al-Athar</span>
+        <span class="gold-text">Athari Publications</span>
         <span class="subtitle">Upon the Way of the Salaf</span>
       </h1>
       <p class="hero-desc">

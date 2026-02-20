@@ -47,7 +47,7 @@
 <nav>
   <div class="nav-left">
     <a class="nav-logo" href="/">
-      Dār al-Athar
+      Athari Publications
       <span class="tagline">Clarifying the Sunnah · Refuting Innovation</span>
     </a>
     <ul class="nav-links">
