@@ -103,7 +103,7 @@
   <div class="ornament" style="margin-top: 4rem">✦ ✦ ✦</div>
 </main>
 
-<a class="btt" id="btt" href="#" title="Back to top">↑</a>
+<button class="btt" id="btt" title="Back to top" aria-label="Back to top">↑</button>
 
 <style>
   .meta-item { display: flex; flex-direction: column; }

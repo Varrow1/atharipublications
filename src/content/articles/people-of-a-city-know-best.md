@@ -9,6 +9,10 @@ readTime: 4
 description: "A foundational principle from the People of Hadeeth: why those from a person's own land possess the truest insight into their character and status."
 ---
 
+<script>
+  import { base } from '$app/paths';
+</script>
+
 Hammād Ibn Zayd said: “The people of a man’s city know him best.”
 
 This is a foundational principle with the People of Ḥadeeth.
@@ -45,7 +49,7 @@ Imām Mālik narrated from ‘Abd al-Karīm b. Abī al-Khāriq in his Muwaṭṭ
 Ibn ‘Atī said about Shaqīq al-Dhabī: Shaqīq al-Dhabī is a Kufan, and I only know him as such. He was one of the storytellers of the people of Kufa, and storytelling was plentiful in his speech. I do not know of any aḥādīth attributed to him with a proper chain of narration as is with others. He is condemned by the people of his land, and they know him best. (al-Kāmil 5/71)
 
 <div style="margin: 3rem 0; text-align: center;">
-  <img src="/Mualimi-on-the-people-of-a-land-768x768.jpeg" alt="Mualimi on the people of a land" style="max-width: 100%; height: auto; border: 1px solid var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,0.3); border-radius: 4px;" />
+  <img src="{base}/Mualimi-on-the-people-of-a-land-768x768.jpeg" alt="Mualimi on the people of a land" style="max-width: 100%; height: auto; border: 1px solid var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,0.3); border-radius: 4px;" />
 </div>
 
 <p style="font-size: 0.85rem; color: var(--muted); font-style: italic; margin-top: 1rem;">
