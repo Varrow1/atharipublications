@@ -42,7 +42,10 @@
   }
   
   onMount(() => {
-    window.scrollTo(0, 0);
+    // Scroll to top on load with a slight delay to account for transitions
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 10);
     
     // Back to top button
     const btt = document.getElementById('btt');
