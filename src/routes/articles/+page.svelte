@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { afterNavigate } from '$app/navigation';
   import { fade, fly } from 'svelte/transition';
   import { base } from '$app/paths';
 
@@ -18,11 +19,11 @@
     }
   }
 
+  afterNavigate(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+
   onMount(() => {
-    // Scroll to top on load with a slight delay to account for transitions
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 10);
   });
 </script>
 

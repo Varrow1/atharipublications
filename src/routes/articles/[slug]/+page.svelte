@@ -1,6 +1,7 @@
 <script>
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
+  import { afterNavigate } from '$app/navigation';
   import { fade, fly } from 'svelte/transition';
   import { base } from '$app/paths';
   
@@ -40,13 +41,12 @@
     }
     return 'Article';
   }
+
+  afterNavigate(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
   
   onMount(() => {
-    // Scroll to top on load with a slight delay to account for transitions
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 10);
-    
     // Back to top button
     const btt = document.getElementById('btt');
     
