@@ -53,7 +53,8 @@ Shaykh ʿUbayd al-Jābirī (رحمه الله) said:
 
 7. Finally, it should be mentioned that some of the scholars, such as Shaykh Ibn al-ʿUthaymīn (رحمه الله), held the view that knowledge of what can be said to be a neutral subject, such as the Arabic language for example, that which is not connected to matters of creed or methodology, even these types of knowledge should not be sought and taken from an innovator. And this is because this serves as a stepping stone and introduction to other areas of knowledge that he has in which there is deviation, or that deviation may have actually entered into these neutral subjects.
 
-<div class="conclusion">
-  <h3>Summary Reflection</h3>
-  <p>It can be the case that there are scholars of the past who had something of innovation but they wrote valuable works in the field of tafsīr, fiqh or ḥadīth and the likes and these works, either being free of innovation, or having already been critically evaluated with any errors known and made clear, may be used for teaching. However, there is nothing of truth except that there will be found among the scholars of the Sunnah, those upon the way of the Salaf, an authorship regarding it.</p>
+<div class="references">
+  <h4>Footnotes</h4>
+  <div class="ref-item"><span class="ref-num">1</span><span>AL-Fawāʾid al-Majmūʿah (Dar al-Midād, 1439) pp. 161-162.</span></div>
+  <div class="ref-item"><span class="ref-num">2</span><span>It can be the case that there are scholars of the past who had something of innovation but they wrote valuable works in the field of tafsīr, fiqh or ḥadīth and the likes and these works, either being free of innovation, or having already been critically evaluated with any errors known and made clear, may be used for teaching. However, there is nothing of truth except that there will be found among the scholars of the Sunnah, those upon the way of the Salaf, an authorship regarding it.</span></div>
 </div>
